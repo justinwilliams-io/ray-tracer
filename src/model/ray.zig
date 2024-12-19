@@ -19,7 +19,7 @@ pub const Ray = struct {
         };
     }
 
-    pub fn getOrigin(self: *Ray) Point3 {
+    pub fn getOrigin(self: *const Ray) Point3 {
         return self.orig;
     }
 
@@ -27,7 +27,7 @@ pub const Ray = struct {
         return self.dir;
     }
 
-    pub fn at(self: *Ray, t: f64) Point3 {
-        return self.orig + (self.dir * t);
+    pub fn at(self: *const Ray, t: f64) Point3 {
+        return self.orig.add(self.dir.mulScalar(t));
     }
 };

@@ -11,15 +11,15 @@ pub const Vec3 = struct {
         return Vec3{ .e = [3]f64{ e0, e1, e2 } };
     }
 
-    pub fn x(self: *Vec3) f64 {
+    pub fn x(self: *const Vec3) f64 {
         return self.e[0];
     }
 
-    pub fn y(self: *Vec3) f64 {
+    pub fn y(self: *const Vec3) f64 {
         return self.e[1];
     }
 
-    pub fn z(self: *Vec3) f64 {
+    pub fn z(self: *const Vec3) f64 {
         return self.e[2];
     }
 
@@ -39,7 +39,7 @@ pub const Vec3 = struct {
         return Vec3.initWith(self.e[0] - t.e[0], self.e[1] - t.e[1], self.e[2] - t.e[2]);
     }
 
-    pub fn subAssign(self: *Vec3, v: *Vec3) *Vec3 {
+    pub fn subAssign(self: *Vec3, v: Vec3) *Vec3 {
         self.e[0] -= v.e[0];
         self.e[1] -= v.e[1];
         self.e[2] -= v.e[2];
@@ -47,7 +47,7 @@ pub const Vec3 = struct {
         return &self;
     }
 
-    pub fn addAssign(self: *Vec3, v: *Vec3) *Vec3 {
+    pub fn addAssign(self: *Vec3, v: Vec3) *Vec3 {
         self.e[0] += v.e[0];
         self.e[1] += v.e[1];
         self.e[2] += v.e[2];
