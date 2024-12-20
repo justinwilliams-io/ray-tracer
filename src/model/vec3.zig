@@ -3,6 +3,8 @@ const std = @import("std");
 pub const Vec3 = struct {
     e: [3]f64,
 
+    const Self = @This();
+
     pub fn init() Vec3 {
         return Vec3{ .e = [3]f64{ 0, 0, 0 } };
     }
@@ -25,6 +27,10 @@ pub const Vec3 = struct {
 
     pub fn index(self: Vec3, i: usize) f64 {
         return self.e[i];
+    }
+
+    pub fn negative(self: Self) Self {
+        return Vec3.initWith(-self.e[0], -self.e[1], -self.e[2]);
     }
 
     pub fn indexMut(self: Vec3, i: usize) *f64 {
