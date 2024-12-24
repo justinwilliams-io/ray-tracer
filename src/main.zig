@@ -18,7 +18,7 @@ pub fn main() !void {
     var camera = Camera.init();
 
     camera.aspectRatio = 16.0 / 9.0;
-    camera.imageWidth = 400;
+    camera.imageWidth = 1920;
 
     try camera.render(world);
 }
